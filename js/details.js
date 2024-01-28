@@ -68,7 +68,10 @@ function displaydata(meals){
             meals[0].strIngredient19,meals[0].strIngredient20]
         }
         const filteredArray = recipse.filter((str) => str.length>1);
-           console.log(filteredArray);
+           if((filteredArray.length)%2 != 0){
+            filteredArray.pop()
+           }
+
         
        
         container+=`
@@ -92,18 +95,27 @@ function displaydata(meals){
 
         }
         container+=finalRecipse;
-        let finalTags=""
-        if(meals[0].strTags !=null){
-            finalTags=meals[0].strTags
-        }
-       
-          
+         
      container+= `  </ul>
         <p>Tags  :</p> 
         <ul class="list-unstyled d-flex flex-row flex-wrap">`
+
+        let finalTags=""
+        let tagsArray =[]
+        if(meals[0].strTags !=null){
+            finalTags=meals[0].strTags;
+            let delimiter = ",";
+             tagsArray  = finalTags.split(delimiter);
+
+        }
         
-        if(finalTags.length>1){
-            ` <li class="alert alert-danger p-1 mx-2">${finalTags}</li>`
+        if(tagsArray.length==1){
+            container+= ` <li class="alert alert-danger p-1 mx-2">${finalTags}</li>`
+        }
+        else if(tagsArray.length>1){
+            for(let i=0;i<tagsArray.length;i++){
+                container+= ` <li class="alert alert-danger p-1 mx-2">${tagsArray[i]}</li>`
+            }
         }
         else{
             container+=`<br>`
