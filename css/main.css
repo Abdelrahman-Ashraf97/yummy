@@ -34,7 +34,7 @@ footer a{
 }
 
 #navHeader img{
-    width: 50px;
+    width: 3.125rem
     
 }
 #navHeader i{
@@ -151,3 +151,5 @@ color:#08c !important;
       transform: rotate(360deg);
     }
   } 
+
+  
