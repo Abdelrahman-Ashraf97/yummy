@@ -77,7 +77,7 @@ function showDetails(id){
  async function getmealsByLetter(Letter){
   const loader=$(".loading");
   loader.removeClass("d-none")
-    const api=await fetch(`http://www.themealdb.com/api/json/v1/1/search.php?f=${Letter}`);
+    const api=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${Letter}`);
     const{meals}=await api.json();
     loader.fadeOut(1000,function(){
       $('body').css("overflow","auto")
